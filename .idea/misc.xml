@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/sandip_ws/UnitTestingDemo/app/src/main/res/drawable/ic_image.xml" value="0.2046875" />
+        <entry key="..\:/sandip_ws/UnitTestingDemo/app/src/main/res/layout/activity_main.xml" value="0.18863991662324128" />
+        <entry key="..\:/sandip_ws/UnitTestingDemo/app/src/main/res/layout/fragment_add_shopping_item.xml" value="0.1671875" />
+        <entry key="..\:/sandip_ws/UnitTestingDemo/app/src/main/res/layout/fragment_image_pick.xml" value="0.1671875" />
+        <entry key="..\:/sandip_ws/UnitTestingDemo/app/src/main/res/layout/fragment_shopping.xml" value="0.17" />
+        <entry key="..\:/sandip_ws/UnitTestingDemo/app/src/main/res/layout/item_image.xml" value="0.1671875" />
+        <entry key="..\:/sandip_ws/UnitTestingDemo/app/src/main/res/layout/item_shopping.xml" value="0.16510416666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="15" project-jdk-type="JavaSDK" />
+</project>
