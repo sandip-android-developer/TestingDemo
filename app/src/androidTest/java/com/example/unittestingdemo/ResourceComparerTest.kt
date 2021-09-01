@@ -6,7 +6,10 @@ import com.google.common.truth.Truth.assertThat
 import org.junit.Before
 import org.junit.Test
 
+/*This is the test case for class,
+  so accessing class we need context and instance of that class*/
 class ResourceComparerTest {
+
     private lateinit var resourceComparer: ResourceComparer
 
     @Before

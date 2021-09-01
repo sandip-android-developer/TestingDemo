@@ -50,7 +50,7 @@ class ShoppingViewModel @Inject constructor(
             _insertShoppingItemStatus.postValue(
                 Event(
                     Resource.error(
-                        "The must not be empty",
+                        "The name,amountString and priceString must not be empty",
                         null
                     )
                 )

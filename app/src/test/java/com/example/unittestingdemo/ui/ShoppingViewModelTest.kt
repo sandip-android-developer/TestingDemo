@@ -19,7 +19,10 @@ class ShoppingViewModelTest {
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    /*Defining own Junit rule for work on main */
+    /*Defining own Junit rule for work on main because we don't have access to main dispatcher
+   in a local test but if we created this class on android
+  the test then we can use the main dispatcher without creating our own Junit rule
+   i.e., mainCoroutineRule and main dispatcher only runs on the device*/
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
 

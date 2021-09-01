@@ -1,10 +1,9 @@
 package com.example.unittestingdemo.data.local
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.example.unittestingdemo.getOrAwaitValue
-import com.example.unittestingdemo.launchFragmentInHiltContainer
-import com.example.unittestingdemo.ui.ShoppingFragment
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -14,14 +13,18 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 import javax.inject.Inject
 import javax.inject.Named
 
+/*we create this class in the android test because it will take the android device database and if we create
+  * this class in the local test then SQLite takes the local database instead of device SQLite.*/
 //@ExperimentalCoroutinesApi:
 @ExperimentalCoroutinesApi
 @HiltAndroidTest
 @SmallTest
 class ShopingDaoTest {
+
     @get:Rule
     val hiltRule = HiltAndroidRule(this)
 
@@ -37,10 +40,15 @@ class ShopingDaoTest {
 
     @Before
     fun setup() {
-        //Room.inMemoryDatabaseBuilder data stores in the RAM thats why used inMemoryDatabaseBuilder
+        /* Room.inMemoryDatabaseBuilder data stores in the RAM not in persistence
+         data storage that's why used inMemoryDatabaseBuilder*/
 
-        /*We have to create room data base in center for using hilt because
+        /*allowMainThreadQueries :it allow room data base in mainthream
+         i.e., means room data base run in single thread to avoid manipulated each other thread*/
+
+        /*We have to create room data base in center place to inject whereever we want for using hilt because
         we will same instance in every test class*/
+
         /*database = Room.inMemoryDatabaseBuilder(
             ApplicationProvider.getApplicationContext(), ShoppingItemDatabase::class.java
         ).allowMainThreadQueries().build()*/
@@ -60,11 +68,14 @@ class ShopingDaoTest {
         }
     }*/
 
+    /*runBlockingTest :Its used for optimised the test case means it will skip the delay function*/
     @Test
     fun insertShopingItem() = runBlockingTest {
         val shoppingItem = ShoppingItem("name", 1, 1f, "url", id = 1)
         dao.insertShoppingItem(shoppingItem)
-        //Live data run asynchronousily and we dont want,so we create new class
+        /*Live data run asynchronously and so, we dont want,so we create new class i.e., provided by google
+        * it extents live data object and convert to list */
+
         val allSHopingItems = dao.observeAllShoppingItems().getOrAwaitValue()
         assertThat(allSHopingItems).contains(shoppingItem)
     }

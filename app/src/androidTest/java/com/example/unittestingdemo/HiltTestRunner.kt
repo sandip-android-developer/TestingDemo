@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.test.runner.AndroidJUnitRunner
 import dagger.hilt.android.testing.HiltTestApplication
 
+/*This class we have to declear on build. gradle app version and replace with androidJunitRunner*/
 class HiltTestRunner: AndroidJUnitRunner() {
     override fun newApplication(
         cl: ClassLoader?,

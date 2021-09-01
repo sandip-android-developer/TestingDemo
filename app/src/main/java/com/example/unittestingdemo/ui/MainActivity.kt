@@ -7,6 +7,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 
+/* for reference
+https://github.com/philipplackner/ShoppingListTestingYT*/
+
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     @Inject
